@@ -123,18 +123,18 @@ Capacitor          | C21       | 47uF	SMT                                    | 1
 LED                | D1        | 0603 SMT Power/Green                        | 1        |
 LED                | D2        | 0603 SMT TX/Red                             | 1        |
 LED                | D3        | 0603 SMT RX/Yellow                          | 1        |
+LED                | D4        | 0603 SMT CPU/Blue                           | 1        |
 Polyfuse           | F2, F1    | 0.5A	SMT ???                                | 2        |
 Connector          | J1        | Mini USB B                                  | 1        |
 Connector          | J2        | Pin Header 1x6                              | 1        |
 Connector          | J3        | Pin Header 2x13                             | 1        |
-Connector          | J4        | Pin Header 1x1                              | 1        |
-Connector          | J5, J6    | Pin Header 2x34, Right Angle                | 1        |
-Connector          | J7, J8    | Pin Header 2x5                              | 2        |
+Connector          | J4, J5    | Pin Header 2x34, Right Angle                | 1        |
+Connector          | J6, J7    | Pin Header 2x5                              | 2        |
 Resistor           | R1, R2    | 27	Ohm 0603 SMT                             | 2        |
-Resistor           | R3 - R5   | 1 kOhm 0603 SMT                             | 3        |
-Resistor           | R6 - R17  | 4.7 kOhm	0603 SMT                           | 12       |  
-Resistor           | R18 - R24 | 10 kOhm 0603 SMT                            | 7        |  
-Resistor           | R25       | 29.4 kOhm 0603 SMT                          | 1        |
+Resistor           | R3 - R6   | 1 kOhm 0603 SMT                             | 3        |
+Resistor           | R7 - R18  | 4.7 kOhm	0603 SMT                           | 12       |  
+Resistor           | R19 - R25 | 10 kOhm 0603 SMT                            | 7        |  
+Resistor           | R26       | 29.4 kOhm 0603 SMT                          | 1        |
 Trimmer Resistor   | RV1       | 2 kOhm                                      | 1        |
 Tactile Switch     | SW1       | Tactile Switch                              | 1        |
 Integrated Circuit | U1        | Z84C15-QFP                                  | 1        |
@@ -157,7 +157,7 @@ Tiny Z80 is supported by [RomWBW](https://github.com/wwarthen/RomWBW) [v2.9.1](h
 
 ### CPLD Fuse Map
 
-Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. The [CPLD fuse map](CPLD/tiny_z80.jed) and the [SPLD source code](SPLD/tiny_z80.pld) are provided in [SPLD](SPLD) directory of this repository.
+Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. The [CPLD fuse map](CPLD/tiny_z80.jed) and the [CPLD source code](CPLD/tiny_z80.pld) are provided in [CPLD](CPLD) directory of this repository.
 
 ## Release Notes
 
