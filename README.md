@@ -107,11 +107,11 @@ Position        | Description
 
 [Tiny Z80 project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=xxxxxxxxxx) - View and order all components except of the PCB.
 
-[Tiny Z80 project on OSH Park](https://oshpark.com/shared_projects/xxxxxxxx) - View and order the PCB.
+[Tiny Z80 project on OSH Park](https://oshpark.com/shared_projects/C0KRm6BH) - View and order the PCB.
 
 Component type     | Reference | Description                                 | Quantity | Possible sources and notes 
 ------------------ | --------- | ------------------------------------------- | -------- | --------------------------
-PCB                |           | Tiny Z80 PCB - Version 1.0                  | 1        | Refer to the [RetroBrew Computers Board Inventory](https://www.retrobrewcomputers.org/doku.php?id=boardinventory#minimal_8085_z80_single_board_computer) page for ordering information, or order from a PCB manufacturer of your choice using provided Gerber or KiCad files
+PCB                |           | Tiny Z80 PCB - Version 1.0                  | 1        | Order from a PCB manufacturer of your choice using provided Gerber or KiCad files
 Battery Holder     | BT1       | CR2032 Keystone Electronics 534-1058        | 1        | 
 Battery            | BT1       | CR2032                                      | 1        | 
 Capacitor          | C1 - C13  | 100nF 0603 SMT                              | 13       |
