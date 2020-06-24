@@ -20,13 +20,8 @@ Business Card Sized Zilog Z80 Single Board Computer
 *FIXME*
 
 ## Specifications
-*FIXME*
-* Processor: Zilog Z80 CPU (CMOS version - Z84C00)
+* Processor: Zilog Z80 IPC - Z84C14, includes Z80 CPU, Z80 SIO, Z80 PIO, and Z80 CTC
 * Memory: 512 KiB battery-backed SRAM, 512 KiB Flash ROM
-* I/O:
-  * Zilog Z80 CTC - Programmable timer used for periodic interrupts and (optionally) for generating UART clock
-  * Zilog Z80 SIO - Dual channel serial interface, used for console and for connecting to other peripheral devices
-  * Zilog Z80 PIO 
 * Bus: [RC2014](https://rc2014.co.uk/) compatible
 * Microprocessor Supervisor:
   * Reset generation
@@ -40,54 +35,54 @@ For the version 1.0 schematic, PCB layout, and bill of materials please refer to
 
 ### Schematic and PCB Layout
 
-[Schematic - Version 1.1](KiCad/Tiny_Z80-Schematic-1.1.pdf)
+[Schematic - Version 1.0](KiCad/Tiny_Z80-Schematic-1.0.pdf)
 
-[PCB Layout - Version 1.1](KiCad/Tiny_Z80-Board-1.1.pdf)
+[PCB Layout - Version 1.0](KiCad/Tiny_Z80-Board-1.0.pdf)
 
 ### Connectors and Jumpers
 
 #### J5, J6, J7 - RC2014 Bus
 Pin   | Signal Name | Description         | Pin  | Signal Name | Description
 ----- | ----------- | ------------------- | ---- | ----------- | -----------
-J5-1  | A15         | Address A15; Output |      |             |
-J5-2  | A14         | Address A14; Output |      |             |
-J5-3  | A13         | Address A13; Output |      |             |
-J5-4  | A12         | Address A12; Output |      |             |
-J5-5  | A11         | Address A11; Output |      |             |
-J5-6  | A10         | Address A10; Output |      |             |
-J5-7  | A9          | Address A9; Output  |      |             |
-J5-8  | A8          | Address A8; Output  |      |             |
-J5-9  | A7          | Address A7; Output  |      |             |
-J5-10 | A6          | Address A6; Output  |      |             |
-J5-11 | A5          | Address A5; Output  |      |             |
-J5-12 | A4          | Address A4; Output  |      |             |
-J5-13 | A3          | Address A3; Output  |      |             |
-J5-14 | A2          | Address A2; Output  |      |             |
-J5-15 | A1          | Address A1; Output  |      |             |
-J5-16 | A0          | Address A0; Output  |      |             |
-J5-17 | GND         | Ground              | J6-1 | GND         | Ground
-J5-18 | VCC         | Power Supply - +5V  | J6-2 | VCC         | Power Supply - +5V
-J5-19 | /M1         | Machine Cycle One; Output | J6-3| /RFSH | DRAM refresh; Output
-J5-20 | /RESET      | Reset; Output       | J6-4 | N/C         | Not connected
-J5-21 | CPU_CLK     | CPU Clock; Output   | J6-5 | UART_CLK    | UART Clock (1.8432 MHz); Output
-J5-22 | /INT        | Interrupt; Input    | J6-6 | /BUSACK     | DMA Bus Acknowledge; Output
-J5-23 | /MREQ       | Memory Request; Output | J6-8 | /HALT    | Halt; Output
-J5-24 | /WR         | Write Request; Output | J6-9 | /WAIT     | Wait; Input
-J5-25 | /RD         | Read Request; Output | J6-10 | /NMI      | Non-maskable Interrupt; Input
-J5-26 | /IORQ       | Input/Output Request; Output | |         |
-J5-27 | D0          | Data D0; Input/Output |    |             |
-J5-28 | D1          | Data D1; Input/Output |    |             |
-J5-29 | D2          | Data D2; Input/Output |    |             |
-J5-30 | D3          | Data D3; Input/Output |    |             |
-J5-31 | D4          | Data D4; Input/Output |    |             |
-J5-32 | D5          | Data D5; Input/Output |    |             |
-J5-33 | D6          | Data D6; Input/Output |    |             |
-J5-34 | D7          | Data D7; Input/Output |    |             |
-J7-1  | TXDA        | Channel A, Transmit Data; Output | J7-2 | TXDB | Channel B, Transmit Data; Output
-J7-3  | RXDA        | Channel A, Receive Data; Input   | J7-4 | RXDB | Channel B, Receive Data; Input
-J7-5  | USR1        | User Pin 1, Not connected | J7-6 | USR5  | User Pin 5, Not connected 
-J7-7  | IEI         | Interrupt Enable Input  | J7-8 | USR6    | User Pin 6, Not connected 
-J7-9  | IEO         | Interrupt Enable Output | J7-10 | USR7    | User Pin 7, Not connected 
+J4-1  | A15         | Address A15; Output |      |             |
+J4-2  | A14         | Address A14; Output |      |             |
+J4-3  | A13         | Address A13; Output |      |             |
+J4-4  | A12         | Address A12; Output |      |             |
+J4-5  | A11         | Address A11; Output |      |             |
+J4-6  | A10         | Address A10; Output |      |             |
+J4-7  | A9          | Address A9; Output  |      |             |
+J4-8  | A8          | Address A8; Output  |      |             |
+J4-9  | A7          | Address A7; Output  |      |             |
+J4-10 | A6          | Address A6; Output  |      |             |
+J4-11 | A5          | Address A5; Output  |      |             |
+J4-12 | A4          | Address A4; Output  |      |             |
+J4-13 | A3          | Address A3; Output  |      |             |
+J4-14 | A2          | Address A2; Output  |      |             |
+J4-15 | A1          | Address A1; Output  |      |             |
+J4-16 | A0          | Address A0; Output  |      |             |
+J4-17 | GND         | Ground              | J5-1 | GND         | Ground
+J4-18 | VCC         | Power Supply - +5V  | J5-2 | VCC         | Power Supply - +5V
+J4-19 | /M1         | Machine Cycle One; Output | J5-3| /RFSH | DRAM refresh; Output
+J4-20 | /RESET      | Reset; Output       | J5-4 | N/C         | Not connected
+J4-21 | CPU_CLK     | CPU Clock; Output   | J5-5 | UART_CLK    | UART Clock (1.8432 MHz); Output
+J4-22 | /INT        | Interrupt; Input    | J5-6 | /BUSACK     | DMA Bus Acknowledge; Output
+J4-23 | /MREQ       | Memory Request; Output | J5-8 | /HALT    | Halt; Output
+J4-24 | /WR         | Write Request; Output | J5-9 | /WAIT     | Wait; Input
+J4-25 | /RD         | Read Request; Output | J5-10 | /NMI      | Non-maskable Interrupt; Input
+J4-26 | /IORQ       | Input/Output Request; Output | |         |
+J4-27 | D0          | Data D0; Input/Output |    |             |
+J4-28 | D1          | Data D1; Input/Output |    |             |
+J4-29 | D2          | Data D2; Input/Output |    |             |
+J4-30 | D3          | Data D3; Input/Output |    |             |
+J4-31 | D4          | Data D4; Input/Output |    |             |
+J4-32 | D5          | Data D5; Input/Output |    |             |
+J4-33 | D6          | Data D6; Input/Output |    |             |
+J4-34 | D7          | Data D7; Input/Output |    |             |
+J6-1  | TXDA        | Channel A, Transmit Data; Output | J6-2 | TXDB | Channel B, Transmit Data; Output
+J6-3  | RXDA        | Channel A, Receive Data; Input   | J6-4 | RXDB | Channel B, Receive Data; Input
+J6-5  | USR1        | User Pin 1, Not connected | J6-6 | USR5  | User Pin 5, Not connected 
+J6-7  | IEI         | Interrupt Enable Input  | J6-8 | USR6    | User Pin 6, Not connected 
+J6-9  | IEO         | Interrupt Enable Output | J6-10 | USR7    | User Pin 7, Not connected 
 
 #### JP1 - Serial Channel A Clock Select
 Position        | Description
@@ -112,41 +107,41 @@ Position        | Description
 Component type     | Reference | Description                                 | Quantity | Possible sources and notes 
 ------------------ | --------- | ------------------------------------------- | -------- | --------------------------
 PCB                |           | Tiny Z80 PCB - Version 1.0                  | 1        | Order from a PCB manufacturer of your choice using provided Gerber or KiCad files
-Battery Holder     | BT1       | CR2032 Keystone Electronics 534-1058        | 1        | 
+Battery Holder     | BT1       | CR2032 Keystone Electronics 534-1058        | 1        | Mouser [534-1058](https://www.mouser.com/ProductDetail/534-1058)
 Battery            | BT1       | CR2032                                      | 1        | 
-Capacitor          | C1 - C13  | 100nF 0603 SMT                              | 13       |
-Capacitor          | C14, C15  | 33pF 0603 SMT                               | 2        |
-Capacitor          | C16, C17  | 47pF 0603 SMT                               | 2        |
-Capacitor          | C18       | 10nF	0603 SMT                               | 1        |
-Capacitor          | C20, C19  | 10uF	?? SMT                                 | 2        |
-Capacitor          | C21       | 47uF	SMT                                    | 1        |
-LED                | D1        | 0603 SMT Power/Green                        | 1        |
-LED                | D2        | 0603 SMT TX/Red                             | 1        |
-LED                | D3        | 0603 SMT RX/Yellow                          | 1        |
-LED                | D4        | 0603 SMT CPU/Blue                           | 1        |
-Polyfuse           | F2, F1    | 0.5A	SMT ???                                | 2        |
-Connector          | J1        | Mini USB B                                  | 1        |
-Connector          | J2        | Pin Header 1x6                              | 1        |
-Connector          | J3        | Pin Header 2x13                             | 1        |
+Capacitor          | C1 - C13  | 100nF 0603 SMT                              | 13       | Mouser [77-VJ0603Y104JXJPBC](https://www.mouser.com/ProductDetail/77-VJ0603Y104JXJPBC)
+Capacitor          | C14, C15  | 33pF 0603 SMT                               | 2        | Mouser [77-VJ0603A330JXACBC](https://www.mouser.com/ProductDetail/77-VJ0603A330JXACBC)
+Capacitor          | C16, C17  | 47pF 0603 SMT                               | 2        | Mouser [77-VJ0603A470JXACBC](https://www.mouser.com/ProductDetail/77-VJ0603A470JXACBC)
+Capacitor          | C18       | 10nF	0603 SMT                               | 1        | Mouser [77-V0603Y103KXJAC31X](https://www.mouser.com/ProductDetail/77-V0603Y103KXJAC31X)
+Capacitor          | C20, C19  | 10uF	1210 SMT                               | 2        | Mouser [581-TAJB106K020SNJ](https://www.mouser.com/ProductDetail/581-TAJB106K020SNJ)
+Capacitor          | C21       | 47uF	SMT                                    | 1        | Mouser [581-TAJC476K016TNJ](https://www.mouser.com/ProductDetail/581-TAJC476K016TNJ)
+LED                | D1        | 0603 SMT Power/Green                        | 1        | Mouser [78-VLMG1300-GS08](https://www.mouser.com/ProductDetail/78-VLMG1300-GS08)
+LED                | D2        | 0603 SMT TX/Red                             | 1        | Mouser [78-VLMS1300-GS08](https://www.mouser.com/ProductDetail/78-VLMS1300-GS08), [78-VLMO1300-GS08](https://www.mouser.com/ProductDetail/78-VLMO1300-GS08)
+LED                | D3        | 0603 SMT RX/Yellow                          | 1        | Mouser [78-VLMY1300-GS08](https://www.mouser.com/ProductDetail/78-VLMY1300-GS08)
+LED                | D4        | 0603 SMT CPU/Blue                           | 1        | Mouser []()
+Polyfuse           | F2, F1    | 0.5A	SMT                                    | 2        | Mouser [650-MINISMDC050F-2](https://www.mouser.com/ProductDetail/650-MINISMDC050F-2) 
+Connector          | J1        | Mini USB B                                  | 1        | Mouser [649-10118194-0001LF](https://www.mouser.com/ProductDetail/649-10118194-0001LF)
+Connector          | J2        | Pin Header 1x6                              | 1        | Mouser [855-M20-9990645](https://www.mouser.com/ProductDetail/855-M20-9990645)
+Connector          | J3        | Pin Header 2x13                             | 1        | Mouser [855-M20-9721345](https://www.mouser.com/ProductDetail/855-M20-9721345)
 Connector          | J4, J5    | Pin Header 2x34, Right Angle                | 1        |
-Connector          | J6, J7    | Pin Header 2x5                              | 2        |
-Resistor           | R1, R2    | 27	Ohm 0603 SMT                             | 2        |
-Resistor           | R3 - R6   | 1 kOhm 0603 SMT                             | 3        |
-Resistor           | R7 - R18  | 4.7 kOhm	0603 SMT                           | 12       |  
-Resistor           | R19 - R25 | 10 kOhm 0603 SMT                            | 7        |  
-Resistor           | R26       | 29.4 kOhm 0603 SMT                          | 1        |
-Trimmer Resistor   | RV1       | 2 kOhm                                      | 1        |
-Tactile Switch     | SW1       | Tactile Switch                              | 1        |
-Integrated Circuit | U1        | Z84C15-QFP                                  | 1        |
-Integrated Circuit | U2        | SST39SF040                                  | 1        |
-Integrated Circuit | U3        | AS6C4008                                    | 1        |
-Integrated Circuit | U4        | EPM7064AETC44                               | 1        |
-Integrated Circuit | U5        | MAX691xWE                                   | 1        |
-Integrated Circuit | U6        | FT231XS                                     | 1        |
-Integrated Circuit | U7        | TPS79333-EP                                 | 1        |
-IC Socket          | U2        |                                             | 1        |
-Crystal Oscillator | X1        | 1.8432 MHz XO91                             | 1        |
-Crystal Resonator  | Y1        | 16 MHz Crystal_GND24                        | 1        |
+Connector          | J6, J7    | Pin Header 2x5                              | 2        | Mouser [649-68602-110HLF](https://www.mouser.com/ProductDetail/649-68602-110HLF)
+Resistor           | R1, R2    | 27	Ohm 0603 SMT                             | 2        | Mouser [71-CRCW0603-27-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-27-E3)
+Resistor           | R3 - R6   | 1 kOhm 0603 SMT                             | 4        | Mouser [71-CRCW0603-1.0K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-1.0K-E3)
+Resistor           | R7 - R18  | 4.7 kOhm	0603 SMT                           | 12       | Mouser [71-CRCW0603-4.7K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-4.7K-E3)
+Resistor           | R19 - R25 | 10 kOhm 0603 SMT                            | 7        | Mouser [71-CRCW0603-10K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-10K-E3) 
+Resistor           | R26       | 29.4 kOhm 0603 SMT                          | 1        | Mouser [71-CRCW0603-29.4K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-29.4K-E3)
+Trimmer Resistor   | RV1       | 2 kOhm                                      | 1        | Mouser [652-TC33X-2-202E](https://www.mouser.com/ProductDetail/652-TC33X-2-202E), [81-PVG3G202C01R00](https://www.mouser.com/ProductDetail/81-PVG3G202C01R00)
+Tactile Switch     | SW1       | Tactile Switch                              | 1        | Mouser [653-B3U-1000P-B](https://www.mouser.com/ProductDetail/653-B3U-1000P-B)
+Integrated Circuit | U1        | Zilog Z80 IPC, Z84C15-QFP                   | 1        | Mouser [692-Z84C1516FSG](https://www.mouser.com/ProductDetail/692-Z84C1516FSG)
+Integrated Circuit | U2        | SST39SF040                                  | 1        | Mouser [579-39SF0405INHE](https://www.mouser.com/ProductDetail/579-39SF0405INHE)
+Integrated Circuit | U3        | AS6C4008                                    | 1        | Mouser [913-AS6C4008-55SIN](https://www.mouser.com/ProductDetail/913-AS6C4008-55SIN)
+Integrated Circuit | U4        | EPM7064AETC44                               | 1        | Mouser [989-EPM7064AETC4410N](https://www.mouser.com/ProductDetail/989-EPM7064AETC4410N)
+Integrated Circuit | U5        | MAX691xWE                                   | 1        | Mouser [584-ADM691AARWZ-R](https://www.mouser.com/ProductDetail/584-ADM691AARWZ-R)
+Integrated Circuit | U6        | FT231XS                                     | 1        | Mouser [895-FT231XS-R](https://www.mouser.com/ProductDetail/895-FT231XS-R)
+Integrated Circuit | U7        | TPS79333-EP                                 | 1        | Mouser [595-TPS79333DBVR](https://www.mouser.com/ProductDetail/595-TPS79333DBVR)
+IC Socket          | U2        | PLCC32 SMD Socket                           | 1        | Mouser [649-69802-432LF](https://www.mouser.com/ProductDetail/649-69802-432LF)
+Crystal Oscillator | X1        | 1.8432 MHz XO91                             | 1        | Mouser [559-F3345-184](https://www.mouser.com/ProductDetail/559-F3345-184)
+Crystal Resonator  | Y1        | 16 MHz Crystal_GND24                        | 1        | Mouser [732-22516MF18X-G](https://www.mouser.com/ProductDetail/732-22516MF18X-G)
 
 ## Firmware Documentation
 
