@@ -17,11 +17,16 @@ Business Card Sized Zilog Z80 Single Board Computer
   * [Wishlist](#wishlist)
 
 ## Introduction
-*FIXME*
+Tiny Z80 is a business card sized (size?!) single board computer (SBC). It is mostly compatible with [Easy Z80](https://github.com/skiselev/easy_z80), and offers similar capabilities, including 512 KiB of battery-backed SRAM, 512 KiB Flash ROM, Z80 SIO and Z80 CTC (integrated in Z80 EIPC). Tiny Z80 includes a USB to Serial converter IC on board connected to one of the SIO ports, for ease of use with modern computers. The glue logic, including the memory paging registers is implemented using Altera MAX7000AE CPLD.
 
 ## Specifications
-* Processor: Zilog Z80 IPC - Z84C14, includes Z80 CPU, Z80 SIO, Z80 PIO, and Z80 CTC
+* Processor: Zilog Z80 EIPC - Z84C15, includes Z80 CPU, Z80 SIO, Z80 PIO, and Z80 CTC
 * Memory: 512 KiB battery-backed SRAM, 512 KiB Flash ROM
+* Input/Output:
+  * Dual RS232 serial ports, implemented using Z80 SIO integrated into Z80 EIPC
+  * FT231XS USB to Serial converter connected to SIO Port A
+  * Two 8-bit parallel ports, implemented using Z80 PIO integrated into Z80 EIPC
+  * User controllable LED
 * Bus: [RC2014](https://rc2014.co.uk/) compatible
 * Microprocessor Supervisor:
   * Reset generation
@@ -31,8 +36,6 @@ Business Card Sized Zilog Z80 Single Board Computer
 
 ## Hardware Documentation
 
-For the version 1.0 schematic, PCB layout, and bill of materials please refer to [tag v1.0](https://github.com/skiselev/tiny_z80/tree/v1.0)
-
 ### Schematic and PCB Layout
 
 [Schematic - Version 1.0](KiCad/Tiny_Z80-Schematic-1.0.pdf)
@@ -41,7 +44,7 @@ For the version 1.0 schematic, PCB layout, and bill of materials please refer to
 
 ### Connectors and Jumpers
 
-#### J5, J6, J7 - RC2014 Bus
+#### J4, J5, J6 - RC2014 Bus
 Pin   | Signal Name | Description         | Pin  | Signal Name | Description
 ----- | ----------- | ------------------- | ---- | ----------- | -----------
 J4-1  | A15         | Address A15; Output |      |             |
@@ -100,7 +103,7 @@ Position        | Description
 
 #### Version 1.0
 
-[Tiny Z80 project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=xxxxxxxxxx) - View and order all components except of the PCB.
+[Tiny Z80 project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=d29f509257) - View and order all components except of the PCB.
 
 [Tiny Z80 project on OSH Park](https://oshpark.com/shared_projects/C0KRm6BH) - View and order the PCB.
 
@@ -121,21 +124,21 @@ LED                | D3        | 0603 SMT RX/Yellow                          | 1
 LED                | D4        | 0603 SMT CPU/Blue                           | 1        | Mouser []()
 Polyfuse           | F2, F1    | 0.5A	SMT                                    | 2        | Mouser [650-MINISMDC050F-2](https://www.mouser.com/ProductDetail/650-MINISMDC050F-2) 
 Connector          | J1        | Mini USB B                                  | 1        | Mouser [649-10118194-0001LF](https://www.mouser.com/ProductDetail/649-10118194-0001LF)
-Connector          | J2        | Pin Header 1x6                              | 1        | Mouser [855-M20-9990645](https://www.mouser.com/ProductDetail/855-M20-9990645)
-Connector          | J3        | Pin Header 2x13                             | 1        | Mouser [855-M20-9721345](https://www.mouser.com/ProductDetail/855-M20-9721345)
+Connector          | J2        | Pin Header 1x6                              | 1        | 
+Connector          | J3        | Pin Header 2x13                             | 1        | 
 Connector          | J4, J5    | Pin Header 2x34, Right Angle                | 1        |
-Connector          | J6, J7    | Pin Header 2x5                              | 2        | Mouser [649-68602-110HLF](https://www.mouser.com/ProductDetail/649-68602-110HLF)
+Connector          | J6, J7    | Pin Header 2x5                              | 2        | 
 Resistor           | R1, R2    | 27	Ohm 0603 SMT                             | 2        | Mouser [71-CRCW0603-27-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-27-E3)
 Resistor           | R3 - R6   | 1 kOhm 0603 SMT                             | 4        | Mouser [71-CRCW0603-1.0K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-1.0K-E3)
 Resistor           | R7 - R18  | 4.7 kOhm	0603 SMT                           | 12       | Mouser [71-CRCW0603-4.7K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-4.7K-E3)
 Resistor           | R19 - R25 | 10 kOhm 0603 SMT                            | 7        | Mouser [71-CRCW0603-10K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-10K-E3) 
 Resistor           | R26       | 29.4 kOhm 0603 SMT                          | 1        | Mouser [71-CRCW0603-29.4K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-29.4K-E3)
 Trimmer Resistor   | RV1       | 2 kOhm                                      | 1        | Mouser [652-TC33X-2-202E](https://www.mouser.com/ProductDetail/652-TC33X-2-202E), [81-PVG3G202C01R00](https://www.mouser.com/ProductDetail/81-PVG3G202C01R00)
-Tactile Switch     | SW1       | Tactile Switch                              | 1        | Mouser [653-B3U-1000P-B](https://www.mouser.com/ProductDetail/653-B3U-1000P-B)
-Integrated Circuit | U1        | Zilog Z80 IPC, Z84C15-QFP                   | 1        | Mouser [692-Z84C1516FSG](https://www.mouser.com/ProductDetail/692-Z84C1516FSG)
-Integrated Circuit | U2        | SST39SF040                                  | 1        | Mouser [579-39SF0405INHE](https://www.mouser.com/ProductDetail/579-39SF0405INHE)
-Integrated Circuit | U3        | AS6C4008                                    | 1        | Mouser [913-AS6C4008-55SIN](https://www.mouser.com/ProductDetail/913-AS6C4008-55SIN)
-Integrated Circuit | U4        | EPM7064AETC44                               | 1        | Mouser [989-EPM7064AETC4410N](https://www.mouser.com/ProductDetail/989-EPM7064AETC4410N)
+Tactile Switch     | SW1       | Tactile Switch                              | 1        | Mouser [653-B3U-1000P](https://www.mouser.com/ProductDetail/653-B3U-1000P)
+Integrated Circuit | U1        | Z84C15, Zilog Z80 EIPC, 16 MHz, QFP-100     | 1        | Mouser [692-Z84C1516FSG](https://www.mouser.com/ProductDetail/692-Z84C1516FSG)
+Integrated Circuit | U2        | SST39SF040, 512 KiB Flash ROM, PLCC-32      | 1        | Mouser [579-39SF0405INHE](https://www.mouser.com/ProductDetail/579-39SF0405INHE)
+Integrated Circuit | U3        | AS6C4008, 512 KiB SRAM, SOP-32              | 1        | Mouser [913-AS6C4008-55SIN](https://www.mouser.com/ProductDetail/913-AS6C4008-55SIN)
+Integrated Circuit | U4        | EPM7064AETC44, Altera MAX 7000AE CPLD, TQFP-44 | 1        | Mouser [989-EPM7064AETC4410N](https://www.mouser.com/ProductDetail/989-EPM7064AETC4410N)
 Integrated Circuit | U5        | MAX691xWE                                   | 1        | Mouser [584-ADM691AARWZ-R](https://www.mouser.com/ProductDetail/584-ADM691AARWZ-R)
 Integrated Circuit | U6        | FT231XS                                     | 1        | Mouser [895-FT231XS-R](https://www.mouser.com/ProductDetail/895-FT231XS-R)
 Integrated Circuit | U7        | TPS79333-EP                                 | 1        | Mouser [595-TPS79333DBVR](https://www.mouser.com/ProductDetail/595-TPS79333DBVR)
@@ -147,12 +150,12 @@ Crystal Resonator  | Y1        | 16 MHz Crystal_GND24                        | 1
 
 ### BIOS and OS
 
-*Fixme*
-Tiny Z80 is supported by [RomWBW](https://github.com/wwarthen/RomWBW) [v2.9.1](https://github.com/wwarthen/RomWBW/releases/tag/v2.9.1) and later. RomWBW includes BIOS, CP/M-80 2.2, Z-System, and a collection of utilities. It also should be possible to run [FUZIX](https://github.com/EtchedPixels/FUZIX) on this board.
+Tiny Z80 is supported by [RomWBW](https://github.com/wwarthen/RomWBW) [v3.0.1](https://github.com/wwarthen/RomWBW/releases/tag/v3.0.1) and later. RomWBW includes BIOS, CP/M-80 2.2, Z-System, and a collection of utilities. It also should be possible to run [FUZIX](https://github.com/EtchedPixels/FUZIX) on this board.
+*Note: Edit Easy Z80 configuration (cfg_ezz80.asm), set SIO0BASE to $18 and CTCBASE	to $10*
 
 ### CPLD Fuse Map
 
-Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. The [CPLD fuse map](CPLD/tiny_z80.jed) and the [CPLD source code](CPLD/tiny_z80.pld) are provided in [CPLD](CPLD) directory of this repository.
+Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. The [CPLD fuse map](CPLD/tiny_z80.pos) and the [CPLD source code](CPLD/tiny_z80.pld) are provided in [CPLD](CPLD) directory of this repository.
 
 ## Release Notes
 
@@ -162,7 +165,8 @@ Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. 
 
 ### Known Issues
 * Version 1.0
-  * None
+  * Front silkscreen: J7 overlaps with 100nF value of C4
+  * Front silkscreen: R7 4.7k needs to be higher
   
 ### Wishlist
 * Version 1.0
