@@ -19,6 +19,8 @@ Business Card Sized Zilog Z80 Single Board Computer
 ## Introduction
 Tiny Z80 is a business card sized (size?!) single board computer (SBC). It is mostly compatible with [Easy Z80](https://github.com/skiselev/easy_z80), and offers similar capabilities, including 512 KiB of battery-backed SRAM, 512 KiB Flash ROM, Z80 SIO and Z80 CTC (integrated in Z80 EIPC). Tiny Z80 includes a USB to Serial converter IC on board connected to one of the SIO ports, for ease of use with modern computers. The glue logic, including the memory paging registers is implemented using Altera MAX7000AE CPLD.
 
+![Tiny Z80 Assembled Board Top View](images/Tiny_Z80-Assembled-Top.jpg)
+
 ## Specifications
 * Processor: Zilog Z80 EIPC - Z84C15, includes Z80 CPU, Z80 SIO, Z80 PIO, and Z80 CTC
 * Memory: 512 KiB battery-backed SRAM, 512 KiB Flash ROM
