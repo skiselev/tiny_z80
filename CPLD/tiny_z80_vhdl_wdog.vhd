@@ -48,8 +48,8 @@ begin
 	IOWR <= '1' when M1 = '1' and IORQ = '0' and WR = '0' else '0';
 	PAGE_WR <= '1' when IOWR = '1' and A(7 downto 2) = PAGE_ADDR else '0';
 	PGEN_WR <= '1' when IOWR = '1' and A = PGEN_ADDR else '0';
---	WDOG_WR <= '1' when IOWR = '1' and A = WDOG_ADDR else '0';
-	WDOG_WR <= M1;
+	WDOG_WR <= '1' when IOWR = '1' and A = WDOG_ADDR else '0';
+--	WDOG_WR <= M1;
 	LED_WR <= '1' when IOWR = '1' and A = LED_ADDR else '0';
 	
 	-- CTC clock divisor
