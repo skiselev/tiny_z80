@@ -5,7 +5,7 @@ entity TINY_Z80 is
 	port
 	(
 		A : in std_logic_vector(7 downto 0);
-      A_HI : in std_logic_vector(15 downto 14);
+		A_HI : in std_logic_vector(15 downto 14);
 		D : in std_logic_vector(5 downto 0);
 		M1 : in std_logic;
 		IORQ : in std_logic;
@@ -28,7 +28,6 @@ entity TINY_Z80 is
 	constant WDOG_ADDR : std_logic_vector(7 downto 0) := "01101111";
 	-- LED address is 0x6E = 01101110
 	constant LED_ADDR : std_logic_vector(7 downto 0) := "01101110";
-	-- SIO addresses are 0x80 - 0x83 = 100000xx
 end TINY_Z80;
 
 architecture Behavioral of TINY_Z80 is
@@ -46,7 +45,7 @@ architecture Behavioral of TINY_Z80 is
 	end component;
 begin
    -- CPU control signals and address decode
-   IOWR <= '1' when M1 = '1' and IORQ = '0' and WR = '0' else '0';
+	IOWR <= '1' when M1 = '1' and IORQ = '0' and WR = '0' else '0';
 	PAGE_WR <= '1' when IOWR = '1' and A(7 downto 2) = PAGE_ADDR else '0';
 	PGEN_WR <= '1' when IOWR = '1' and A = PGEN_ADDR else '0';
 --	WDOG_WR <= '1' when IOWR = '1' and A = WDOG_ADDR else '0';
