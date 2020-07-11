@@ -157,7 +157,7 @@ Tiny Z80 is supported by [RomWBW](https://github.com/wwarthen/RomWBW) [v3.0.1](h
 
 ### CPLD Fuse Map
 
-Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. The [CPLD fuse map](CPLD/tiny_z80.pos) and the [CPLD source code](CPLD/tiny_z80.pld) are provided in [CPLD](CPLD) directory of this repository.
+Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. The [CPLD fuse map](CPLD/tiny_z80.pof) and the CPLD source code are provided in [CPLD](CPLD) directory of this repository. Use free Altera Quartus II 13.0sp1 Web Edition to program the CPLD. Newer Quartus versions do not support Altera MAX7000 CPLDs.
 
 ## Release Notes
 
