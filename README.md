@@ -46,6 +46,42 @@ Tiny Z80 is a business card sized (size?!) single board computer (SBC). It is mo
 
 ### Connectors and Jumpers
 
+#### J1 - Serial_A - USB Serial
+Pin  | Signal Name | Description
+---- | ----------- | -----------
+1    | VBUS        | Power Supply - +5V
+2    | D-          | USB Data -
+3    | D+          | USB Data +
+4    | NC          | Not Connected
+5    | GND         | Ground
+
+#### J2 - Serial_B - FTDI Header - TTL Level
+Pin  | Signal Name | Description
+---- | ----------- | -----------
+1    | GND         | Ground
+2    | RTS         | RS232 / Request to Send
+3    | VSER        | Power Supply - +5V (Optional, if F2 is installed)
+4    | RXD         | RS232 / Receive
+5    | TXD         | RS232 / Transmit
+6    | CTS         | RS232 / Clear to Send
+
+#### J3 - Parallel - PIO
+Pin  | Signal Name | Description         | Pin  | Signal Name | Description
+---- | ----------- | ------------------- | ---- | ----------- | -----------
+1    | VCC         | Power Supply - +5V  | 2    | GND         | Ground
+3    | PA0         | Port A - Data 0     | 4    | GND         | Ground
+5    | PA1         | Port A - Data 1     | 6    | /BSTB       | Port B - Strobe 
+7    | PA2         | Port A - Data 2     | 8    | BRDY        | Port B - Ready
+9    | PA3         | Port A - Data 3     | 10   | PB7         | Port B - Data 7
+11   | PA4         | Port A - Data 4     | 12   | PB6         | Port B - Data 6
+13   | PA5         | Port A - Data 5     | 14   | PB5         | Port B - Data 5
+15   | PA6         | Port A - Data 6     | 16   | PB4         | Port B - Data 4
+17   | PA7         | Port A - Data 7     | 18   | PB3         | Port B - Data 3
+19   | ARDY        | Port A - Ready      | 20   | PB2         | Port B - Data 2
+21   | /ASTB       | Port A - Strobe     | 22   | PB1         | Port B - Data 1
+23   | GND         | Ground              | 24   | PB0         | Port B - Data 0
+25   | GND         | Ground              | 26   | VCC         | Power Supply - +5V
+
 #### J4, J5, J6 - RC2014 Bus
 Pin   | Signal Name | Description         | Pin  | Signal Name | Description
 ----- | ----------- | ------------------- | ---- | ----------- | -----------
@@ -89,6 +125,16 @@ J6-5  | USR1        | User Pin 1, Not connected | J6-6 | USR5  | User Pin 5, Not
 J6-7  | IEI         | Interrupt Enable Input  | J6-8 | USR6    | User Pin 6, Not connected 
 J6-9  | IEO         | Interrupt Enable Output | J6-10 | USR7    | User Pin 7, Not connected 
 
+#### J7 - JTAG - CPLD
+Pin  | Signal Name | Description      | Pin  | Signal Name | Description
+---- | ----------- | ---------------- | ---- | ----------- | ----------------
+1    | TCK         | Test Clock       | 2    | GND         | Ground
+3    | TDO         | Test Data Output | 4    | 3.3V        | Power Supply - +3.3V
+5    | TMS         | Test Mode Select | 6    | NC          | No Connect
+7    | NC          | No Connect       | 8    | NC          | No Connect
+9    | TDI         | Test Data Input  | 10   | GND         | Ground
+
+
 #### JP1 - Serial Channel A Clock Select
 Position        | Description
 --------------- | -----------
@@ -100,6 +146,12 @@ Position        | Description
 --------------- | -----------
 *1-2 (default)* | 1.8432 MHz (115200 bps if using x16 mode)
 2-3             | Programmable using CTC channel 1
+
+#### JP3 - LDO Bypass
+Solder instead of U7 LD when using 5V CPLD
+
+#### JP4 - RAM_CS, JP5 - VRAM
+Solder when not using U5 CPU Supervisor to connect RAM_CS and VCC directly to the SRAM IC
 
 ### Bill of Materials
 
@@ -157,7 +209,7 @@ Tiny Z80 is supported by [RomWBW](https://github.com/wwarthen/RomWBW) [v3.0.1](h
 
 ### CPLD Fuse Map
 
-Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. The [CPLD fuse map](CPLD/tiny_z80.pos) and the [CPLD source code](CPLD/tiny_z80.pld) are provided in [CPLD](CPLD) directory of this repository.
+Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. The [CPLD fuse map](CPLD/tiny_z80.pof) and the CPLD source code are provided in [CPLD](CPLD) directory of this repository. Use free Altera Quartus II 13.0sp1 Web Edition to program the CPLD. Newer Quartus versions do not support Altera MAX7000 CPLDs.
 
 ## Release Notes
 
