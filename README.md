@@ -220,7 +220,6 @@ Tiny Z80 uses an Intel/Altera EPM7064AETC44 CPLD (U4) for address decode logic. 
 ### Known Issues
 * Version 1.0
   * Front silkscreen: J7 overlaps with 100nF value of C4
-  * Front silkscreen: R7 4.7k needs to be higher
   
 ### Wishlist
 * Version 1.0
