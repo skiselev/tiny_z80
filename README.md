@@ -180,7 +180,7 @@ Polyfuse           | F2, F1    | 0.5A	SMT                                    | 2
 Connector          | J1        | Mini USB B                                  | 1        | Mouser [649-10118194-0001LF](https://www.mouser.com/ProductDetail/649-10118194-0001LF)
 Connector          | J2        | Pin Header 1x6                              | 1        | 
 Connector          | J3        | Pin Header 2x13                             | 1        | 
-Connector          | J4, J5    | Pin Header 2x34, Right Angle                | 1        |
+Connector          | J4, J5    | Pin Header 2x34, Right Angle                | 1        | Mouser [571-9-103326-0](https://www.mouser.com/ProductDetail/571-9-103326-0) Note: Cut to 34 pin, remove extra pins. Use remaining 2x6 piece for J6
 Connector          | J6, J7    | Pin Header 2x5                              | 2        | 
 Resistor           | R1, R2    | 27	Ohm 0603 SMT                             | 2        | Mouser [71-CRCW0603-27-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-27-E3)
 Resistor           | R3 - R6   | 1 kOhm 0603 SMT                             | 4        | Mouser [71-CRCW0603-1.0K-E3](https://www.mouser.com/ProductDetail/71-CRCW0603-1.0K-E3)
