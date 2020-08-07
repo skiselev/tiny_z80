@@ -148,7 +148,7 @@ Position        | Description
 2-3             | Programmable using CTC channel 1
 
 #### JP3 - LDO Bypass
-Solder instead of U7 LD when using 5V CPLD
+Solder instead of U7 LDO when using a 5V CPLD
 
 #### JP4 - RAM_CS, JP5 - VRAM
 Solder when not using U5 CPU Supervisor to connect RAM_CS and VCC directly to the SRAM IC
